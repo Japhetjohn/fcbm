@@ -88,6 +88,7 @@ module.exports = {
       },
       screens: {
         'xs': '475px',
+      },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
         lg: "var(--radius)",
