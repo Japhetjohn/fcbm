@@ -119,7 +119,7 @@ export function Museum() {
                   <div className="flex flex-col sm:flex-row sm:justify-between gap-3 sm:gap-2">
                     {museumConfig.timeline.map((event, index) => (
                       <div key={event.year} className={`relative flex flex-row items-center gap-3 sm:flex-col sm:flex-shrink-0 sm:min-w-[70px] ${index > 0 ? 'sm:border-l-0 border-t border-white/10 sm:border-t-0 pt-3 sm:pt-0' : ''}`}>
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#141414] border-2 border-gold-500 z-10 flex-shrink-0" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#0d1525] border-2 border-gold-500 z-10 flex-shrink-0" />
                         <div className="flex flex-col sm:items-center">
                           <span className="font-serif text-sm text-gold-500 sm:mt-2">{event.year}</span>
                           <span className="text-[11px] text-white/60 sm:mt-0.5 sm:text-center">{event.event}</span>

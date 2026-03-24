@@ -21,7 +21,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] bg-[#0a0a0a] flex flex-col items-center justify-center transition-opacity duration-600 ${
+      className={`fixed inset-0 z-[9999] bg-[#0d1525] flex flex-col items-center justify-center transition-opacity duration-600 ${
         phase === 'fading' ? 'opacity-0' : 'opacity-100'
       }`}
     >
