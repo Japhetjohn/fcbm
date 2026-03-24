@@ -54,28 +54,28 @@ export function Footer() {
   return (
     <footer className="relative border-t border-white/10" role="contentinfo">
       {/* Main Footer */}
-      <div className="container-custom py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+      <div className="container-custom py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8">
           {/* Brand Column */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <Wine className="w-8 h-8 text-gold-500" aria-hidden="true" />
+          <div className="lg:col-span-1 sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
+              <Wine className="w-7 h-7 sm:w-8 sm:h-8 text-gold-500" aria-hidden="true" />
               <div>
-                <span className="font-serif text-xl text-white block">{footerConfig.brandName}</span>
+                <span className="font-serif text-lg sm:text-xl text-white block">{footerConfig.brandName}</span>
                 {footerConfig.tagline && (
                   <span className="text-[10px] text-gold-400 tracking-widest uppercase">{footerConfig.tagline}</span>
                 )}
               </div>
             </div>
             {footerConfig.description && (
-              <p className="text-white/70 text-sm leading-relaxed mb-6">
+              <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
                 {footerConfig.description}
               </p>
             )}
             {/* Social Links */}
             {footerConfig.socialLinks.length > 0 && (
               <nav aria-label="Social media links">
-                <div className="flex gap-3">
+                <div className="flex gap-2 sm:gap-3">
                   {footerConfig.socialLinks.map((social) => {
                     const IconComponent = iconMap[social.icon];
                     return (
@@ -83,9 +83,9 @@ export function Footer() {
                         key={social.label}
                         href={social.href}
                         aria-label={social.label}
-                        className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-gold-500 hover:border-gold-500 hover:text-white transition-all duration-300"
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-gold-500 hover:border-gold-500 hover:text-white transition-all duration-300"
                       >
-                        {IconComponent && <IconComponent className="w-4 h-4" />}
+                        {IconComponent && <IconComponent className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                       </a>
                     );
                   })}
@@ -97,13 +97,13 @@ export function Footer() {
           {/* Link Groups */}
           {footerConfig.linkGroups.map((group, index) => (
             <nav key={index} aria-label={group.title}>
-              <h3 className="font-serif text-lg text-white mb-5">{group.title}</h3>
-              <ul className="space-y-3">
+              <h3 className="font-serif text-base sm:text-lg text-white mb-3 sm:mb-5">{group.title}</h3>
+              <ul className="space-y-2 sm:space-y-3">
                 {group.links.map((link) => (
                   <li key={link.name}>
                     <button
                       onClick={() => scrollToSection(link.href)}
-                      className="text-white/70 text-sm hover:text-gold-400 transition-colors"
+                      className="text-white/70 text-xs sm:text-sm hover:text-gold-400 transition-colors"
                     >
                       {link.name}
                     </button>
@@ -117,14 +117,14 @@ export function Footer() {
           <div>
             {footerConfig.contactItems.length > 0 && (
               <>
-                <h3 className="font-serif text-lg text-white mb-5">{footerConfig.linkGroups.length > 0 ? footerConfig.linkGroups[footerConfig.linkGroups.length - 1]?.title : ''}</h3>
-                <ul className="space-y-4">
+                <h3 className="font-serif text-base sm:text-lg text-white mb-3 sm:mb-5">{footerConfig.linkGroups.length > 0 ? footerConfig.linkGroups[footerConfig.linkGroups.length - 1]?.title : ''}</h3>
+                <ul className="space-y-3 sm:space-y-4">
                   {footerConfig.contactItems.map((item, index) => {
                     const IconComponent = iconMap[item.icon];
                     return (
-                      <li key={index} className="flex items-start gap-3">
-                        {IconComponent && <IconComponent className="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" aria-hidden="true" />}
-                        <span className="text-white/70 text-sm">{item.text}</span>
+                      <li key={index} className="flex items-start gap-2 sm:gap-3">
+                        {IconComponent && <IconComponent className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold-500 mt-0.5 flex-shrink-0" aria-hidden="true" />}
+                        <span className="text-white/70 text-xs sm:text-sm">{item.text}</span>
                       </li>
                     );
                   })}
@@ -134,8 +134,8 @@ export function Footer() {
 
             {/* Newsletter */}
             {footerConfig.newsletterLabel && (
-              <div className="mt-6 pt-6 border-t border-white/10">
-                <p className="text-white/70 text-sm mb-3">{footerConfig.newsletterLabel}</p>
+              <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-white/10">
+                <p className="text-white/70 text-xs sm:text-sm mb-2 sm:mb-3">{footerConfig.newsletterLabel}</p>
                 {newsletterStatus === 'success' ? (
                   <div className="flex items-center gap-2 text-green-400 text-sm">
                     <CheckCircle className="w-4 h-4" />
@@ -152,11 +152,11 @@ export function Footer() {
                       placeholder={footerConfig.newsletterPlaceholder}
                       required
                       autoComplete="email"
-                      className="flex-1 px-3 py-2 bg-white/5 border border-white/20 rounded-sm text-white text-sm placeholder-white/40 focus:outline-none focus:border-gold-500 transition-colors"
+                      className="flex-1 px-2.5 sm:px-3 py-2 bg-white/5 border border-white/20 rounded-sm text-white text-xs sm:text-sm placeholder-white/40 focus:outline-none focus:border-gold-500 transition-colors"
                     />
                     <button
                       type="submit"
-                      className="px-4 py-2 bg-gold-500 text-white text-sm rounded-sm hover:bg-gold-600 transition-colors"
+                      className="px-3 sm:px-4 py-2 bg-gold-500 text-white text-xs sm:text-sm rounded-sm hover:bg-gold-600 transition-colors whitespace-nowrap"
                     >
                       {footerConfig.newsletterButtonText}
                     </button>
@@ -173,8 +173,8 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-white/50 text-xs">
+        <div className="container-custom py-4 sm:py-6 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-white/50 text-[10px] sm:text-xs">
             {footerConfig.copyrightText && (
               <span>&copy; {new Date().getFullYear()} {footerConfig.copyrightText}</span>
             )}
@@ -196,12 +196,12 @@ export function Footer() {
           {footerConfig.backToTopText && (
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-2 text-white/70 text-sm hover:text-gold-400 transition-colors group"
+              className="flex items-center gap-2 text-white/70 text-xs sm:text-sm hover:text-gold-400 transition-colors group"
               aria-label={footerConfig.backToTopText}
             >
               <span>{footerConfig.backToTopText}</span>
-              <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold-500 group-hover:bg-gold-500 transition-all duration-300">
-                <ArrowUp className="w-4 h-4" />
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold-500 group-hover:bg-gold-500 transition-all duration-300">
+                <ArrowUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </div>
             </button>
           )}
@@ -210,9 +210,9 @@ export function Footer() {
 
       {/* Age Verification Note */}
       {footerConfig.ageVerificationText && (
-        <div className="bg-wine-900 py-3">
-          <div className="container-custom">
-            <p className="text-center text-white/50 text-xs">
+        <div className="bg-wine-900 py-2 sm:py-3">
+          <div className="container-custom px-4">
+            <p className="text-center text-white/50 text-[10px] sm:text-xs">
               {footerConfig.ageVerificationText}
             </p>
           </div>

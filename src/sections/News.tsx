@@ -38,9 +38,9 @@ export function News() {
 
       <div className="container-custom relative">
         {/* Section Header */}
-        <div className="fade-up flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div className="fade-up flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
           <div>
-            <span className="font-script text-3xl text-gold-400 block mb-2">{newsConfig.scriptText}</span>
+            <span className="font-script text-2xl sm:text-3xl text-gold-400 block mb-2">{newsConfig.scriptText}</span>
             <span className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-4 block">
               {newsConfig.subtitle}
             </span>
@@ -49,7 +49,7 @@ export function News() {
             </h2>
           </div>
           {newsConfig.viewAllText && (
-            <button className="btn-dark rounded-sm flex items-center gap-2 group w-fit" aria-label={newsConfig.viewAllText}>
+            <button className="btn-dark rounded-sm flex items-center gap-2 group w-fit text-sm" aria-label={newsConfig.viewAllText}>
               {newsConfig.viewAllText}
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
@@ -58,7 +58,7 @@ export function News() {
 
         {/* News Grid */}
         {newsConfig.articles.length > 0 && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {newsConfig.articles.map((item, index) => (
               <article
                 key={item.id}
@@ -66,7 +66,7 @@ export function News() {
                 style={{ transitionDelay: `${0.1 + index * 0.1}s` }}
               >
                 {/* Image */}
-                <div className="relative aspect-[3/2] rounded-lg overflow-hidden mb-5">
+                <div className="relative aspect-[16/10] sm:aspect-[3/2] rounded-lg overflow-hidden mb-4 sm:mb-5">
                   <img
                     src={item.image}
                     alt={`${item.title} - ${item.category}`}
@@ -123,9 +123,9 @@ export function News() {
 
         {/* Testimonials Section */}
         {newsConfig.testimonials.length > 0 && (
-          <div className="mt-24">
-            <div className="fade-up text-center mb-12">
-              <span className="font-script text-3xl text-gold-400 block mb-2">{newsConfig.testimonialsScriptText}</span>
+          <div className="mt-16 sm:mt-24">
+            <div className="fade-up text-center mb-8 sm:mb-12">
+              <span className="font-script text-2xl sm:text-3xl text-gold-400 block mb-2">{newsConfig.testimonialsScriptText}</span>
               <span className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-4 block">
                 {newsConfig.testimonialsSubtitle}
               </span>
@@ -134,14 +134,14 @@ export function News() {
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
               {newsConfig.testimonials.map((t, index) => (
                 <div
                   key={t.name}
-                  className="scale-in p-8 bg-white/5 rounded-lg border border-white/10 relative"
+                  className="scale-in p-6 sm:p-8 bg-white/5 rounded-lg border border-white/10 relative"
                   style={{ transitionDelay: `${0.1 + index * 0.1}s` }}
                 >
-                  <Quote className="w-8 h-8 text-gold-500/30 absolute top-6 right-6" />
+                  <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-gold-500/30 absolute top-4 right-4 sm:top-6 sm:right-6" />
                   {/* Stars */}
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: t.rating }).map((_, i) => (
@@ -163,18 +163,18 @@ export function News() {
 
         {/* Story Section */}
         {newsConfig.storyTitle && (
-          <div id="story" className="fade-up mt-24 pt-20 border-t border-white/10" style={{ transitionDelay: '0.1s' }}>
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div id="story" className="fade-up mt-16 sm:mt-24 pt-12 sm:pt-20 border-t border-white/10" style={{ transitionDelay: '0.1s' }}>
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               {/* Content */}
               <div className="slide-in-left">
-                <span className="font-script text-3xl text-gold-400 block mb-2">{newsConfig.storyScriptText}</span>
+                <span className="font-script text-2xl sm:text-3xl text-gold-400 block mb-2">{newsConfig.storyScriptText}</span>
                 <span className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-4 block">
                   {newsConfig.storySubtitle}
                 </span>
-                <h2 className="font-serif text-h2 text-white mb-6">
+                <h2 className="font-serif text-h2 text-white mb-4 sm:mb-6">
                   {newsConfig.storyTitle}
                 </h2>
-                <div className="space-y-4 text-white/75 leading-relaxed">
+                <div className="space-y-3 sm:space-y-4 text-white/75 leading-relaxed text-sm sm:text-base">
                   {newsConfig.storyParagraphs.map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
                   ))}
@@ -182,11 +182,11 @@ export function News() {
 
                 {/* Timeline Highlights */}
                 {newsConfig.storyTimeline.length > 0 && (
-                  <div className="mt-8 grid grid-cols-3 gap-4">
+                  <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-2 sm:gap-4">
                     {newsConfig.storyTimeline.map((item, index) => (
-                      <div key={index} className="text-center p-4 bg-white/5 rounded-lg border border-white/10">
-                        <div className="font-serif text-2xl text-gold-500 mb-1">{item.value}</div>
-                        <div className="text-xs text-white/60">{item.label}</div>
+                      <div key={index} className="text-center p-3 sm:p-4 bg-white/5 rounded-lg border border-white/10">
+                        <div className="font-serif text-xl sm:text-2xl text-gold-500 mb-1">{item.value}</div>
+                        <div className="text-[10px] sm:text-xs text-white/60">{item.label}</div>
                       </div>
                     ))}
                   </div>
@@ -195,7 +195,7 @@ export function News() {
 
               {/* Image */}
               <div className="slide-in-right relative">
-                <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
+                <div className="relative aspect-[4/3] sm:aspect-[4/5] rounded-lg overflow-hidden">
                   {newsConfig.storyImage && (
                     <>
                       <img
@@ -211,11 +211,11 @@ export function News() {
 
                 {/* Quote Overlay */}
                 {newsConfig.storyQuote.text && (
-                  <div className="absolute bottom-6 left-6 right-6 p-6 bg-black/60 backdrop-blur-sm rounded-lg">
+                  <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-4 sm:p-6 bg-black/60 backdrop-blur-sm rounded-lg">
                     {newsConfig.storyQuote.prefix && (
-                      <p className="font-script text-2xl text-gold-400 mb-1">{newsConfig.storyQuote.prefix}</p>
+                      <p className="font-script text-xl sm:text-2xl text-gold-400 mb-1">{newsConfig.storyQuote.prefix}</p>
                     )}
-                    <p className="text-white italic text-sm leading-relaxed mb-2">
+                    <p className="text-white italic text-xs sm:text-sm leading-relaxed mb-2">
                       "{newsConfig.storyQuote.text}"
                     </p>
                     {newsConfig.storyQuote.attribution && (

@@ -98,44 +98,44 @@ export function ContactForm() {
 
       <div className="container-custom relative">
         {/* Section Header */}
-        <div className="fade-up text-center mb-16">
-          <span className="font-script text-3xl text-gold-400 block mb-2">{contactFormConfig.scriptText}</span>
+        <div className="fade-up text-center mb-10 sm:mb-16">
+          <span className="font-script text-2xl sm:text-3xl text-gold-400 block mb-2">{contactFormConfig.scriptText}</span>
           <span className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-4 block">
             {contactFormConfig.subtitle}
           </span>
-          <h2 className="font-serif text-h1 text-white mb-4">
+          <h2 className="font-serif text-h1 text-white mb-3 sm:mb-4">
             {contactFormConfig.mainTitle}
           </h2>
           {contactFormConfig.introText && (
-            <p className="text-white/70 max-w-2xl mx-auto">
+            <p className="text-white/70 max-w-2xl mx-auto text-sm sm:text-base px-4">
               {contactFormConfig.introText}
             </p>
           )}
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-16">
           {/* Contact Info */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             <div className="slide-in-left" style={{ transitionDelay: '0.1s' }}>
               {contactFormConfig.contactInfoTitle && (
-                <h3 className="font-serif text-h5 text-white mb-6">{contactFormConfig.contactInfoTitle}</h3>
+                <h3 className="font-serif text-lg sm:text-h5 text-white mb-4 sm:mb-6">{contactFormConfig.contactInfoTitle}</h3>
               )}
-              <div className="space-y-4" role="list" aria-label="Contact information">
+              <div className="space-y-3 sm:space-y-4" role="list" aria-label="Contact information">
                 {contactFormConfig.contactInfo.map((item) => {
                   const IconComponent = iconMap[item.icon];
                   return (
                     <div
                       key={item.label}
-                      className="flex items-start gap-4 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-gold-500/30 transition-colors"
+                      className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-white/5 rounded-lg border border-white/10 hover:border-gold-500/30 transition-colors"
                       role="listitem"
                     >
-                      <div className="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center flex-shrink-0">
-                        {IconComponent && <IconComponent className="w-5 h-5 text-gold-500" />}
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gold-500/10 flex items-center justify-center flex-shrink-0">
+                        {IconComponent && <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-gold-500" />}
                       </div>
                       <div>
-                        <p className="text-xs text-white/60 uppercase tracking-wider mb-1">{item.label}</p>
-                        <p className="text-white font-medium">{item.value}</p>
-                        <p className="text-sm text-white/60">{item.subtext}</p>
+                        <p className="text-[10px] sm:text-xs text-white/60 uppercase tracking-wider mb-1">{item.label}</p>
+                        <p className="text-white font-medium text-sm sm:text-base">{item.value}</p>
+                        <p className="text-xs sm:text-sm text-white/60">{item.subtext}</p>
                       </div>
                     </div>
                   );
@@ -146,7 +146,7 @@ export function ContactForm() {
 
           {/* Form */}
           <div className="lg:col-span-3">
-            <div className="slide-in-right bg-white/5 rounded-lg border border-white/10 p-8" style={{ transitionDelay: '0.15s' }}>
+            <div className="slide-in-right bg-white/5 rounded-lg border border-white/10 p-5 sm:p-8" style={{ transitionDelay: '0.15s' }}>
               {status === 'success' ? (
                 <div className="text-center py-12" role="alert">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
@@ -162,11 +162,11 @@ export function ContactForm() {
                   </h3>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-                  <div className="grid md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6" noValidate>
+                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                     {/* Name */}
                     <div>
-                      <label htmlFor="contact-name" className="block text-sm text-white/80 mb-2">
+                      <label htmlFor="contact-name" className="block text-xs sm:text-sm text-white/80 mb-1.5 sm:mb-2">
                         {form.nameLabel} <span className="text-gold-500">*</span>
                       </label>
                       <input
@@ -178,13 +178,13 @@ export function ContactForm() {
                         required
                         placeholder={form.namePlaceholder}
                         autoComplete="name"
-                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-gold-500 transition-colors"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-gold-500 transition-colors text-sm sm:text-base"
                       />
                     </div>
 
                     {/* Phone */}
                     <div>
-                      <label htmlFor="contact-phone" className="block text-sm text-white/80 mb-2">
+                      <label htmlFor="contact-phone" className="block text-xs sm:text-sm text-white/80 mb-1.5 sm:mb-2">
                         {form.phoneLabel} <span className="text-gold-500">*</span>
                       </label>
                       <input
@@ -196,13 +196,13 @@ export function ContactForm() {
                         required
                         placeholder={form.phonePlaceholder}
                         autoComplete="tel"
-                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-gold-500 transition-colors"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-gold-500 transition-colors text-sm sm:text-base"
                       />
                     </div>
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="contact-email" className="block text-sm text-white/80 mb-2">
+                      <label htmlFor="contact-email" className="block text-xs sm:text-sm text-white/80 mb-1.5 sm:mb-2">
                         {form.emailLabel} <span className="text-gold-500">*</span>
                       </label>
                       <input
@@ -214,13 +214,13 @@ export function ContactForm() {
                         required
                         placeholder={form.emailPlaceholder}
                         autoComplete="email"
-                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-gold-500 transition-colors"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-gold-500 transition-colors text-sm sm:text-base"
                       />
                     </div>
 
                     {/* Visit Date */}
                     <div>
-                      <label htmlFor="contact-date" className="block text-sm text-white/80 mb-2">
+                      <label htmlFor="contact-date" className="block text-xs sm:text-sm text-white/80 mb-1.5 sm:mb-2">
                         {form.visitDateLabel} <span className="text-gold-500">*</span>
                       </label>
                       <input
@@ -230,7 +230,7 @@ export function ContactForm() {
                         value={formData.visitDate}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white focus:outline-none focus:border-gold-500 transition-colors"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/20 rounded-sm text-white focus:outline-none focus:border-gold-500 transition-colors text-sm sm:text-base"
                       />
                     </div>
                   </div>
@@ -238,7 +238,7 @@ export function ContactForm() {
                   {/* Number of Visitors */}
                   {form.visitorsOptions.length > 0 && (
                     <div>
-                      <label htmlFor="contact-visitors" className="block text-sm text-white/80 mb-2">
+                      <label htmlFor="contact-visitors" className="block text-xs sm:text-sm text-white/80 mb-1.5 sm:mb-2">
                         {form.visitorsLabel}
                       </label>
                       <select
@@ -246,7 +246,7 @@ export function ContactForm() {
                         name="visitors"
                         value={formData.visitors}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white focus:outline-none focus:border-gold-500 transition-colors"
+                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/20 rounded-sm text-white focus:outline-none focus:border-gold-500 transition-colors text-sm sm:text-base"
                       >
                         {form.visitorsOptions.map((option) => (
                           <option key={option} value={option} className="bg-wine-800">{option}</option>
@@ -257,7 +257,7 @@ export function ContactForm() {
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="contact-message" className="block text-sm text-white/80 mb-2">
+                    <label htmlFor="contact-message" className="block text-xs sm:text-sm text-white/80 mb-1.5 sm:mb-2">
                       {form.messageLabel}
                     </label>
                     <textarea
@@ -265,9 +265,9 @@ export function ContactForm() {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      rows={4}
+                      rows={3}
                       placeholder={form.messagePlaceholder}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-gold-500 transition-colors resize-none"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-gold-500 transition-colors resize-none text-sm sm:text-base"
                     />
                   </div>
 
@@ -275,7 +275,7 @@ export function ContactForm() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn-primary rounded-sm flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full btn-primary rounded-sm flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base py-2.5 sm:py-3"
                   >
                     {isSubmitting ? (
                       <>
@@ -291,7 +291,7 @@ export function ContactForm() {
                   </button>
 
                   {contactFormConfig.privacyNotice && (
-                    <p className="text-xs text-white/50 text-center">
+                    <p className="text-[10px] sm:text-xs text-white/50 text-center">
                       {contactFormConfig.privacyNotice}
                     </p>
                   )}

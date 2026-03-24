@@ -58,13 +58,13 @@ export function Navigation() {
         {/* Logo */}
         <button
           onClick={() => scrollToSection('#hero')}
-          className="flex items-center gap-3 group"
+          className="flex items-center gap-2 sm:gap-3 group"
           aria-label={navigationConfig.brandName}
         >
-          <Wine className="w-8 h-8 text-gold-500 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+          <Wine className="w-7 h-7 sm:w-8 sm:h-8 text-gold-500 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
           <div className="flex flex-col">
-            <span className="font-serif text-xl text-white tracking-wide">{navigationConfig.brandName}</span>
-            <span className="text-[10px] text-gold-400 tracking-widest uppercase">{navigationConfig.tagline}</span>
+            <span className="font-serif text-lg sm:text-xl text-white tracking-wide">{navigationConfig.brandName}</span>
+            <span className="text-[9px] sm:text-[10px] text-gold-400 tracking-widest uppercase hidden sm:block">{navigationConfig.tagline}</span>
           </div>
         </button>
 
@@ -151,7 +151,7 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed inset-0 top-[72px] bg-wine-900/98 backdrop-blur-lg transition-all duration-500 ${
+        className={`lg:hidden fixed inset-0 top-[60px] sm:top-[72px] bg-wine-900/98 backdrop-blur-lg transition-all duration-500 ${
           isMobileMenuOpen
             ? 'opacity-100 visible'
             : 'opacity-0 invisible pointer-events-none'
@@ -159,7 +159,7 @@ export function Navigation() {
         role="menu"
         aria-hidden={!isMobileMenuOpen}
       >
-        <div className="container-custom py-8 flex flex-col gap-2">
+        <div className="container-custom py-6 sm:py-8 flex flex-col gap-2">
           {navLinks.map((link, index) => {
             const IconComponent = iconMap[link.icon];
             return (
@@ -172,15 +172,15 @@ export function Navigation() {
                   <div>
                     <button
                       onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
-                      className="flex items-center justify-between w-full py-4 text-lg text-white border-b border-white/10"
+                      className="flex items-center justify-between w-full py-3 sm:py-4 text-base sm:text-lg text-white border-b border-white/10"
                       aria-expanded={activeDropdown === link.name}
                       role="menuitem"
                     >
                       <span className="flex items-center gap-3">
-                        {IconComponent && <IconComponent className="w-5 h-5 text-gold-500" />}
+                        {IconComponent && <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-gold-500" />}
                         {link.name}
                       </span>
-                      <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${
+                      <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 ${
                         activeDropdown === link.name ? 'rotate-180' : ''
                       }`} aria-hidden="true" />
                     </button>
@@ -194,7 +194,7 @@ export function Navigation() {
                         <button
                           key={item.name}
                           onClick={() => scrollToSection(item.href)}
-                          className="block w-full text-left pl-12 py-3 text-white/70 hover:text-gold-400"
+                          className="block w-full text-left pl-10 sm:pl-12 py-2.5 sm:py-3 text-sm sm:text-base text-white/70 hover:text-gold-400"
                           role="menuitem"
                         >
                           {item.name}
@@ -205,10 +205,10 @@ export function Navigation() {
                 ) : (
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="flex items-center gap-3 w-full py-4 text-lg text-white border-b border-white/10 hover:text-gold-400 transition-colors"
+                    className="flex items-center gap-3 w-full py-3 sm:py-4 text-base sm:text-lg text-white border-b border-white/10 hover:text-gold-400 transition-colors"
                     role="menuitem"
                   >
-                    {IconComponent && <IconComponent className="w-5 h-5 text-gold-500" />}
+                    {IconComponent && <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-gold-500" />}
                     {link.name}
                   </button>
                 )}
@@ -219,7 +219,7 @@ export function Navigation() {
           {navigationConfig.ctaButtonText && (
             <button
               onClick={() => scrollToSection('#contact')}
-              className="btn-primary rounded mt-6 text-center"
+              className="btn-primary rounded mt-4 sm:mt-6 text-center text-sm sm:text-base py-2.5 sm:py-3"
               role="menuitem"
             >
               {navigationConfig.ctaButtonText}
