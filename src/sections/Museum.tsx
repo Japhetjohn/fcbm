@@ -67,7 +67,7 @@ export function Museum() {
 
             {/* Tabs */}
             {museumConfig.tabs.length > 0 && (
-              <div className="fade-up flex flex-wrap gap-2 mb-8" style={{ transitionDelay: '0.15s' }}>
+              <div className="fade-up flex flex-wrap gap-2 mb-6 sm:mb-8" style={{ transitionDelay: '0.15s' }}>
                 {museumConfig.tabs.map((tab) => {
                   const IconComponent = iconMap[tab.icon];
                   return (
@@ -75,14 +75,14 @@ export function Museum() {
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id)}
                       aria-pressed={activeTab === tab.id}
-                      className={`flex items-center gap-2 px-4 py-2.5 rounded-sm text-sm transition-all duration-300 ${
+                      className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-sm text-xs sm:text-sm transition-all duration-300 flex-1 sm:flex-none justify-center min-w-[calc(33%-4px)] sm:min-w-0 ${
                         activeTab === tab.id
                           ? 'bg-gold-500 text-white'
                           : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
                       }`}
                     >
-                      {IconComponent && <IconComponent className="w-4 h-4" />}
-                      {tab.name}
+                      {IconComponent && <IconComponent className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />}
+                      <span className="truncate">{tab.name}</span>
                     </button>
                   );
                 })}
@@ -92,16 +92,16 @@ export function Museum() {
             {/* Tab Content */}
             <div className="fade-up" style={{ transitionDelay: '0.2s' }}>
               {activeTabData && (
-                <div className="p-6 bg-white/5 rounded-lg border border-white/10 transition-all duration-300">
-                  <h3 className="font-serif text-h5 text-white mb-4">
+                <div className="p-4 sm:p-6 bg-white/5 rounded-lg border border-white/10 transition-all duration-300">
+                  <h3 className="font-serif text-base sm:text-h5 text-white mb-3 sm:mb-4">
                     {activeTabData.content.title}
                   </h3>
-                  <p className="text-white/75 leading-relaxed mb-4">
+                  <p className="text-white/75 leading-relaxed mb-4 text-sm sm:text-base">
                     {activeTabData.content.description}
                   </p>
                   <div className="flex items-center gap-3 text-gold-500">
-                    <div className="w-8 h-px bg-gold-500" />
-                    <span className="text-sm font-medium">
+                    <div className="w-6 sm:w-8 h-px bg-gold-500 flex-shrink-0" />
+                    <span className="text-xs sm:text-sm font-medium">
                       {activeTabData.content.highlight}
                     </span>
                   </div>
@@ -111,18 +111,18 @@ export function Museum() {
 
             {/* Horizontal Timeline */}
             {museumConfig.timeline.length > 0 && (
-              <div className="fade-up mt-8" style={{ transitionDelay: '0.25s' }}>
+              <div className="fade-up mt-6 sm:mt-8" style={{ transitionDelay: '0.25s' }}>
                 <div className="relative">
-                  {/* Horizontal line */}
+                  {/* Horizontal line - hidden on mobile */}
                   <div className="absolute top-3 left-0 right-0 h-px bg-gold-500/30 hidden sm:block" />
                   {/* Timeline points */}
-                  <div className="flex sm:justify-between overflow-x-auto gap-4 sm:gap-2 pb-2 sm:pb-0">
-                    {museumConfig.timeline.map((event) => (
-                      <div key={event.year} className="relative flex flex-row sm:flex-col items-center sm:flex-shrink-0 min-w-[auto] sm:min-w-[70px] gap-2 sm:gap-0">
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-3 sm:gap-2">
+                    {museumConfig.timeline.map((event, index) => (
+                      <div key={event.year} className={`relative flex flex-row items-center gap-3 sm:flex-col sm:flex-shrink-0 sm:min-w-[70px] ${index > 0 ? 'sm:border-l-0 border-t border-white/10 sm:border-t-0 pt-3 sm:pt-0' : ''}`}>
                         <div className="w-2.5 h-2.5 rounded-full bg-[#141414] border-2 border-gold-500 z-10 flex-shrink-0" />
-                        <div className="flex flex-row sm:flex-col items-center gap-1 sm:gap-0">
+                        <div className="flex flex-col sm:items-center">
                           <span className="font-serif text-sm text-gold-500 sm:mt-2">{event.year}</span>
-                          <span className="text-[11px] text-white/60 sm:mt-0.5 text-center whitespace-nowrap">{event.event}</span>
+                          <span className="text-[11px] text-white/60 sm:mt-0.5 sm:text-center">{event.event}</span>
                         </div>
                       </div>
                     ))}

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Wine, Home, BookOpen, Newspaper, Users, Mail, Grape } from 'lucide-react';
+import { Menu, X, ChevronDown, Home, BookOpen, Newspaper, Users, Mail, Grape } from 'lucide-react';
 import { navigationConfig } from '../config';
 
 // Icon lookup map for dynamic icon resolution from config strings
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Home, BookOpen, Newspaper, Users, Mail, Grape, Wine, Menu, X, ChevronDown,
+  Home, BookOpen, Newspaper, Users, Mail, Grape, Menu, X, ChevronDown,
 };
 
 export function Navigation() {
@@ -61,7 +61,11 @@ export function Navigation() {
           className="flex items-center gap-2 sm:gap-3 group"
           aria-label={navigationConfig.brandName}
         >
-          <Wine className="w-7 h-7 sm:w-8 sm:h-8 text-gold-500 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+          <img 
+            src="/images/fcms-logo.png" 
+            alt="FCMS Logo" 
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-gold-500/50 transition-transform duration-300 group-hover:scale-110"
+          />
           <div className="flex flex-col">
             <span className="font-serif text-lg sm:text-xl text-white tracking-wide">{navigationConfig.brandName}</span>
             <span className="text-[9px] sm:text-[10px] text-gold-400 tracking-widest uppercase hidden sm:block">{navigationConfig.tagline}</span>

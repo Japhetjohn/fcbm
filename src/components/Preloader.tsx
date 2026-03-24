@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Wine } from 'lucide-react';
 import { preloaderConfig } from '../config';
 
 export function Preloader({ onComplete }: { onComplete: () => void }) {
@@ -28,7 +27,11 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
     >
       {/* Logo Icon */}
       <div className="preloader-text mb-6">
-        <Wine className="w-12 h-12 text-gold-500" />
+        <img 
+          src="/images/fcms-logo.png" 
+          alt="FCMS Logo" 
+          className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-gold-500/50"
+        />
       </div>
 
       {/* Brand Name */}

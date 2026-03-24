@@ -54,7 +54,7 @@ export const navigationConfig: NavigationConfig = {
   brandSubname: "ATBU Bauchi",
   tagline: "Togetherness in Christ",
   navLinks: [
-    { name: "Home", href: "#home", icon: "Home" },
+    { name: "Home", href: "#hero", icon: "Home" },
     { name: "Programs", href: "#programs", icon: "BookOpen" },
     { name: "About", href: "#about", icon: "Users" },
     { name: "Events", href: "#events", icon: "Newspaper" },
@@ -677,7 +677,7 @@ export const footerConfig: FooterConfig = {
     {
       title: "Quick Links",
       links: [
-        { name: "Home", href: "#home" },
+        { name: "Home", href: "#hero" },
         { name: "Programs", href: "#programs" },
         { name: "About Us", href: "#about" },
         { name: "Events", href: "#events" },

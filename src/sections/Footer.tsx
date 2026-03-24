@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Wine, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ArrowUp, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ArrowUp, CheckCircle } from 'lucide-react';
 import { footerConfig } from '../config';
 
 // Icon lookup map for dynamic icon resolution from config strings
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Wine, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ArrowUp,
+  MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ArrowUp,
 };
 
 export function Footer() {
@@ -59,7 +59,11 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <Wine className="w-7 h-7 sm:w-8 sm:h-8 text-gold-500" aria-hidden="true" />
+              <img 
+                src="/images/fcms-logo.png" 
+                alt="FCMS Logo" 
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border border-gold-500/50"
+              />
               <div>
                 <span className="font-serif text-lg sm:text-xl text-white block">{footerConfig.brandName}</span>
                 {footerConfig.tagline && (
